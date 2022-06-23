@@ -39,10 +39,11 @@ To produce an executable installer on Windows, the following are required:
     1. Copy `Plugin\x86-ansi\InetC.dll` to `C:\Program Files (x86)\NSIS\Plugins\x86-ansi\`
     1. Copy `Plugin\x86-unicode\InetC.dll` to `C:\Program Files (x86)\NSIS\Plugins\x86-unicode\`
     
-1. [NSISpcre Plug-in for Nullsoft](http://nsis.sourceforge.net/NSISpcre_plug-in) - 1.0
+1. [NSISpcre Plug-in for Nullsoft](https://github.com/mazinsw/NSISpcre/archive/refs/heads/master.zip) - 1.0
     1. Extract Zip
-    1. Copy `NSISpre.nsh` to `C:\Program Files (x86)\NSIS\Include\`
-    1. Copy `NSISpre.dll` to `C:\Program Files (x86)\NSIS\Plugins\x86-ansi\`
+    1. Copy `include\NSISpre.nsh` to `C:\Program Files (x86)\NSIS\Include\`
+    1. Copy `bin\x86-ansi\NSISpre.dll` to `C:\Program Files (x86)\NSIS\Plugins\x86-ansi\`
+    1. Copy `bin\x86-unicode\NSISpre.dll` to `C:\Program Files (x86)\NSIS\Plugins\x86-unicode\`
 
 1. [nsisSlideshow Plug-in for Nullsoft](<http://wiz0u.free.fr/prog/nsisSlideshow/>) - 1.7
    1.  Extract Zip
