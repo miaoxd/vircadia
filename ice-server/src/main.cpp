@@ -16,6 +16,7 @@
 #include "IceServer.h"
 
 int main(int argc, char* argv[]) {
+    qInfo() << "[mxd test] this is Ice server starting" << endl;
     setupHifiApplication("Ice Server");
     
     IceServer iceServer(argc, argv);

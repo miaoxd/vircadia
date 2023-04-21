@@ -23,6 +23,7 @@
 #include "DomainServer.h"
 
 int main(int argc, char* argv[]) {
+    qInfo() << "[mxd test] this is domain server starting" << endl;
     setupHifiApplication(BuildInfo::DOMAIN_SERVER_NAME);
 
     DomainServer::parseCommandLine(argc, argv);
