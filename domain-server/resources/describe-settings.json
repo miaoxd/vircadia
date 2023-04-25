@@ -2100,7 +2100,7 @@
           "name": "provider",
           "label": "Provider",
           "help": "OAuth provider URL.",
-          "default": "https://metaverse.vircadia.com/live",
+          "default": "http://192.168.11.252:9400",
           "advanced":  true,
           "backup": false
         },

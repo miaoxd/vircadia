@@ -8,9 +8,10 @@
 
 #include "NetworkUtils.h"
 #include <QtNetwork/QNetworkInterface>
+//#include <iostream>
 
 namespace {
-    const QString LINK_LOCAL_SUBNET {"169.254."};
+    const QString LINK_LOCAL_SUBNET {"192.168.11."};
 
     // Is address local-subnet valid only (rfc 3927):
     bool isLinkLocalAddress(const QHostAddress& ip4Addr) {
@@ -28,27 +29,31 @@ QHostAddress getGuessedLocalAddress() {
             && networkInterface.flags() & QNetworkInterface::IsRunning
             && networkInterface.flags() & ~QNetworkInterface::IsLoopBack) {
             // we've decided that this is the active NIC
-            // enumerate it's addresses to grab the IPv4 address
+            // enumerate it's addresses to grab the IPv4 address            
             foreach(const QNetworkAddressEntry &entry, networkInterface.addressEntries()) {
                 const auto& addressCandidate = entry.ip();
                 // make sure it's an IPv4 address that isn't the loopback
+                //std::cout << "xxxxxxxxxxxxx " << addressCandidate.toString().toStdString() << std::endl;
                 if (addressCandidate.protocol() == QAbstractSocket::IPv4Protocol && !addressCandidate.isLoopback()) {
                     if (isLinkLocalAddress(addressCandidate)) {
                         linkLocalAddress = addressCandidate;  // Last resort
+                        break;
                     } else {
                         // set our localAddress and break out
                         localAddress = addressCandidate;
-                        break;
+                        //break;
                     }
                 }
             }
         }
 
-        if (!localAddress.isNull()) {
+        //if (!localAddress.isNull()) {
+        if (!linkLocalAddress.isNull()) {
             break;
         }
     }
 
     // return the looked up local address
-    return localAddress.isNull() ? linkLocalAddress : localAddress;
+    // return localAddress.isNull() ? linkLocalAddress : localAddress;
+    return linkLocalAddress.isNull() ? localAddress : linkLocalAddress;
 }

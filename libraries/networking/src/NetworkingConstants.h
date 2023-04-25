@@ -30,12 +30,12 @@ namespace NetworkingConstants {
     const QString WEB_ENGINE_VERSION = "Chrome/83.0.4103.122";
 
     // For now we only have one Metaverse server.
-    const QUrl METAVERSE_SERVER_URL_STABLE { "https://metaverse.vircadia.com/live" };
-    const QUrl METAVERSE_SERVER_URL_STAGING { "https://metaverse.vircadia.com/live" };
+    const QUrl METAVERSE_SERVER_URL_STABLE { "http://192.168.11.252:9400" };
+    const QUrl METAVERSE_SERVER_URL_STAGING { "http://192.168.11.252:9400" };
 
     // Web Engine requests to this parent domain have an account authorization header added
-    const QString AUTH_HOSTNAME_BASE = "vircadia.com";
-    const QStringList IS_AUTHABLE_HOSTNAME = { "vircadia.com", "vircadia.io" };
+    const QString AUTH_HOSTNAME_BASE = "192.168.11.252:9400";
+    const QStringList IS_AUTHABLE_HOSTNAME = { "192.168.11.252:9400", "vircadia.com", "vircadia.io" };
 
     // Use a custom User-Agent to avoid ModSecurity filtering, e.g. by hosting providers.
     const QByteArray VIRCADIA_USER_AGENT = "Mozilla/5.0 (VircadiaInterface)";
@@ -44,7 +44,7 @@ namespace NetworkingConstants {
     const QString MOBILE_USER_AGENT = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) " + WEB_ENGINE_VERSION + " Mobile Safari/537.36";
 
     // WebEntity Defaults
-    const QString WEB_ENTITY_DEFAULT_SOURCE_URL = "https://vircadia.com/";
+    const QString WEB_ENTITY_DEFAULT_SOURCE_URL = "http://192.168.11.252:9400/";
     const QString WEB_ENTITY_DEFAULT_USER_AGENT = WEB_ENGINE_USER_AGENT;
 
     // Builds URLs
@@ -61,14 +61,14 @@ namespace NetworkingConstants {
     const QString VIRCADIA_CONTENT_CDN_URL = "https://cdn-1.vircadia.com/us-e-1/";
 
 #if USE_STABLE_GLOBAL_SERVICES
-    const QString ICE_SERVER_DEFAULT_HOSTNAME = "ice.vircadia.com";
+    const QString ICE_SERVER_DEFAULT_HOSTNAME = "192.168.11.252";
 
-    const QString STUN_SERVER_DEFAULT_HOSTNAME = "stun1.l.google.com";
+    const QString STUN_SERVER_DEFAULT_HOSTNAME = "192.168.11.252";
     const unsigned short STUN_SERVER_DEFAULT_PORT = 19302;
 #else
-    const QString ICE_SERVER_DEFAULT_HOSTNAME = "ice.vircadia.com";
+    const QString ICE_SERVER_DEFAULT_HOSTNAME = "192.168.11.252";
 
-    const QString STUN_SERVER_DEFAULT_HOSTNAME = "stun2.l.google.com";
+    const QString STUN_SERVER_DEFAULT_HOSTNAME = "192.168.11.252";
     const unsigned short STUN_SERVER_DEFAULT_PORT = 19302;
 #endif
 

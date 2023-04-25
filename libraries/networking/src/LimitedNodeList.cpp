@@ -1280,10 +1280,10 @@ void LimitedNodeList::setLocalSocket(const SockAddr& sockAddr) {
     if (sockAddr.getAddress() != _localSockAddr.getAddress()) {
 
         if (_localSockAddr.isNull()) {
-            qCInfo(networking) << "Local socket is" << sockAddr;
+            qCInfo(networking) << "mxd Local socket is" << sockAddr;
             _localSockAddr = sockAddr;
         } else {
-            qCInfo(networking) << "Local socket has changed from" << _localSockAddr << "to" << sockAddr;
+            qCInfo(networking) << "mxd Local socket has changed from" << _localSockAddr << "to" << sockAddr;
             _localSockAddr = sockAddr;
             if (_hasTCPCheckedLocalSocket) {  // Force a port change for NAT:
                 reset("local socket change");
